@@ -1,0 +1,28 @@
+.matching-results {
+  text-align: center;
+  padding: 2rem;
+}
+
+.loading-spinner {
+  font-size: 3rem;
+  margin-top: 1rem;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error-message {
+  padding: 1rem;
+  background: #fee;
+  color: #c33;
+  border-radius: 6px;
+  border: 1px solid #fcc;
+}
+
