@@ -76,6 +76,75 @@ LINKEDIN_PASSWORD=your_linkedin_password
 
 자세한 테스트 방법은 [TESTING.md](TESTING.md)를 참조하세요.
 
+**📋 결과 확인 가이드**: 채용 공고 수집 결과를 확인하는 상세한 방법은 [HOW_TO_VIEW_RESULTS.md](HOW_TO_VIEW_RESULTS.md)를 참조하세요.
+
+### 결과 확인 방법
+
+채용 공고 수집 결과는 다음 방법으로 확인할 수 있습니다:
+
+#### 1. GitHub 저장소에서 직접 확인
+
+**방법 A: README.md 확인**
+- 저장소 메인 페이지의 README.md 파일을 확인하세요
+- "📋 최신 채용 공고" 섹션에 상위 10개 채용 공고가 자동으로 표시됩니다
+- 마지막 업데이트 시간도 함께 표시됩니다
+
+**방법 B: JSON 파일 확인**
+1. 저장소의 `jobs/` 디렉토리로 이동
+2. `latest.json` 파일 클릭하여 최신 결과 확인
+3. 또는 `jobs_YYYYMMDD_HHMMSS.json` 형식의 타임스탬프별 파일 확인
+
+**방법 C: GitHub Actions 로그 확인**
+1. **Actions** 탭 클릭
+2. 최근 실행된 "Daily Job Search" 워크플로우 선택
+3. "Run job search" 단계를 클릭하여 실행 로그 확인
+4. 수집된 채용 공고 개수와 키워드 정보 확인
+
+#### 2. 로컬에서 확인
+
+```bash
+# 저장소 클론
+git clone https://github.com/djyalu/job_search.git
+cd job_search
+
+# 최신 결과 확인
+cat jobs/latest.json
+
+# 또는 Python으로 읽기
+python -c "import json; data = json.load(open('jobs/latest.json', encoding='utf-8')); print(f'총 {data[\"total\"]}개의 채용 공고'); [print(f'{i+1}. {job[\"title\"]} - {job[\"company\"]}') for i, job in enumerate(data['jobs'][:10])]"
+```
+
+#### 3. JSON 파일 구조
+
+`jobs/latest.json` 파일 구조:
+```json
+{
+  "timestamp": "2025-01-XX 09:00:00",
+  "total": 25,
+  "keywords": ["Python Developer", "Software Engineer"],
+  "location": "Seoul, South Korea",
+  "jobs": [
+    {
+      "id": "linkedin_0",
+      "title": "Senior Python Developer",
+      "company": "Tech Company",
+      "location": "Seoul",
+      "description": "...",
+      "url": "https://...",
+      "source": "linkedin",
+      "posted_date": "2025-01-XX..."
+    }
+  ]
+}
+```
+
+#### 4. 커밋 히스토리 확인
+
+매 실행마다 결과가 자동으로 커밋되므로:
+1. 저장소의 **Commits** 탭에서 최근 커밋 확인
+2. 커밋 메시지: "Auto update: Latest job postings YYYY-MM-DD HH:MM"
+3. 커밋 상세에서 변경된 파일 확인
+
 ## 프로젝트 구조
 
 ```
