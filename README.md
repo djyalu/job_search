@@ -63,6 +63,34 @@ python scripts/view_results.py --html
 - `jobs/jobs_YYYYMMDD_HHMMSS.json`: 타임스탬프별 결과
 - `jobs/viewer.html`: HTML 뷰어 (생성 시)
 
+### 이력서와 채용 공고 비교 분석
+
+**인터랙티브 모드 (추천):**
+```bash
+python scripts/compare_interactive.py
+# 이력서 파일 경로, 채용 공고 파일, 결과 개수 등을 입력
+```
+
+**명령줄 모드:**
+```bash
+# 기본 사용
+python scripts/compare_resume.py "path/to/resume.pdf"
+
+# 옵션 지정
+python scripts/compare_resume.py "resume.pdf" --jobs jobs/latest.json --top 20 --html
+
+# HTML 리포트 생성
+python scripts/compare_resume.py "resume.pdf" --html --output comparison_report.html
+```
+
+**비교 결과:**
+- 전체 적합도 점수 (0-100%)
+- 세부 점수: 스킬, 경력, 학력, 설명 매칭
+- 매칭된 키워드 목록
+- 누락된 키워드 목록
+- 개선 추천사항
+- HTML 리포트 생성 (선택사항)
+
 ## 설치 및 실행
 
 ### 백엔드 설정
@@ -121,9 +149,10 @@ LINKEDIN_PASSWORD=your_linkedin_password
 
 자세한 테스트 방법은 [TESTING.md](TESTING.md)를 참조하세요.
 
-**📋 결과 확인 가이드**: 
-- GitHub에서 확인: [HOW_TO_VIEW_RESULTS.md](HOW_TO_VIEW_RESULTS.md)
-- 로컬에서 확인: [LOCAL_USAGE.md](LOCAL_USAGE.md)
+**📋 가이드 문서**: 
+- 로컬 사용: [LOCAL_USAGE.md](LOCAL_USAGE.md)
+- 결과 확인: [HOW_TO_VIEW_RESULTS.md](HOW_TO_VIEW_RESULTS.md)
+- 이력서 비교: [RESUME_COMPARISON.md](RESUME_COMPARISON.md)
 
 ### 결과 확인 방법
 
