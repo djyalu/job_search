@@ -3,6 +3,7 @@ import './App.css';
 import JobSearch from './components/JobSearch';
 import ResumeUpload from './components/ResumeUpload';
 import MatchingResults from './components/MatchingResults';
+import LocalDashboard from './pages/LocalDashboard';
 
 interface Job {
   id: string;
@@ -25,6 +26,12 @@ function App() {
   const [resume, setResume] = useState<ResumeData | null>(null);
   const [selectedJob, setSelectedJob] = useState<Job | null>(null);
   const [matchingResult, setMatchingResult] = useState<any>(null);
+  const [viewMode, setViewMode] = useState<'api' | 'local'>('local');
+
+  // 로컬 대시보드 모드
+  if (viewMode === 'local') {
+    return <LocalDashboard />;
+  }
 
   return (
     <div className="App">

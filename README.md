@@ -18,6 +18,35 @@ LinkedIn과 Indeed에서 채용 공고를 검색하고, 이력서를 업로드�
 - **Database**: SQLite (개발) / PostgreSQL (프로덕션)
 - **Web Scraping**: Selenium / BeautifulSoup
 
+## 🌐 웹 UI 사용 (추천)
+
+로컬에서 웹 브라우저를 통해 모든 기능을 사용할 수 있습니다.
+
+### 웹 UI 시작
+
+```bash
+# 방법 1: 자동 시작 스크립트 (추천)
+python scripts/start_ui.py
+
+# 방법 2: 수동 시작
+# 터미널 1: FastAPI 서버
+uvicorn app.main:app --reload
+
+# 터미널 2: React 프론트엔드
+cd frontend
+npm start
+```
+
+브라우저에서 `http://localhost:3000` (또는 `http://localhost:5173`)로 접속하세요.
+
+### 웹 UI 기능
+
+- **채용 공고 검색**: 키워드와 지역을 입력하여 검색
+- **결과 확인**: 수집된 채용 공고 목록 및 상세 정보 확인
+- **이력서 업로드**: PDF, DOCX, TXT 파일 업로드
+- **이력서 비교**: 업로드한 이력서와 채용 공고 자동 비교 분석
+- **HTML 리포트**: 비교 결과를 브라우저에서 바로 확인
+
 ## 로컬에서 채용 공고 수집 및 확인
 
 ### 빠른 시작
@@ -115,6 +144,11 @@ uvicorn app.main:app --reload
 cd frontend
 npm install
 npm start
+```
+
+**또는 웹 UI 자동 시작:**
+```bash
+python scripts/start_ui.py
 ```
 
 ## 환경 변수

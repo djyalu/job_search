@@ -34,9 +34,10 @@ async def health_check():
     return {"status": "healthy"}
 
 # API 라우터 임포트
-from app.api import job_search, resume, matching
+from app.api import job_search, resume, matching, local
 
 app.include_router(job_search.router, prefix="/api/jobs", tags=["jobs"])
 app.include_router(resume.router, prefix="/api/resume", tags=["resume"])
 app.include_router(matching.router, prefix="/api/matching", tags=["matching"])
+app.include_router(local.router, prefix="/api/local", tags=["local"])
 
