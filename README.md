@@ -18,6 +18,51 @@ LinkedIn과 Indeed에서 채용 공고를 검색하고, 이력서를 업로드�
 - **Database**: SQLite (개발) / PostgreSQL (프로덕션)
 - **Web Scraping**: Selenium / BeautifulSoup
 
+## 로컬에서 채용 공고 수집 및 확인
+
+### 빠른 시작
+
+```bash
+# 1. 채용 공고 수집 (인터랙티브 모드)
+python scripts/run_local.py
+
+# 2. 결과 확인 (콘솔)
+python scripts/view_results.py
+
+# 3. 결과 확인 (HTML 뷰어)
+python scripts/view_results.py --html
+# 생성된 jobs/viewer.html 파일을 브라우저에서 열기
+```
+
+### 상세 사용법
+
+**채용 공고 수집:**
+```bash
+# 방법 1: 인터랙티브 모드 (추천)
+python scripts/run_local.py
+# 키워드와 지역을 입력하라는 프롬프트가 나타납니다
+
+# 방법 2: 환경 변수 사용
+set SEARCH_KEYWORDS=Python Developer,Software Engineer
+set SEARCH_LOCATION=Seoul, South Korea
+python scripts/daily_job_search.py
+```
+
+**결과 확인:**
+```bash
+# 콘솔에 요약 및 목록 출력
+python scripts/view_results.py
+
+# HTML 뷰어 생성 (브라우저에서 보기 좋게 확인)
+python scripts/view_results.py --html
+# jobs/viewer.html 파일이 생성됩니다
+```
+
+**결과 파일 위치:**
+- `jobs/latest.json`: 최신 검색 결과
+- `jobs/jobs_YYYYMMDD_HHMMSS.json`: 타임스탬프별 결과
+- `jobs/viewer.html`: HTML 뷰어 (생성 시)
+
 ## 설치 및 실행
 
 ### 백엔드 설정
@@ -76,7 +121,9 @@ LINKEDIN_PASSWORD=your_linkedin_password
 
 자세한 테스트 방법은 [TESTING.md](TESTING.md)를 참조하세요.
 
-**📋 결과 확인 가이드**: 채용 공고 수집 결과를 확인하는 상세한 방법은 [HOW_TO_VIEW_RESULTS.md](HOW_TO_VIEW_RESULTS.md)를 참조하세요.
+**📋 결과 확인 가이드**: 
+- GitHub에서 확인: [HOW_TO_VIEW_RESULTS.md](HOW_TO_VIEW_RESULTS.md)
+- 로컬에서 확인: [LOCAL_USAGE.md](LOCAL_USAGE.md)
 
 ### 결과 확인 방법
 

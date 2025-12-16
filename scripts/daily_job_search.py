@@ -110,6 +110,10 @@ def main():
     update_readme(unique_jobs, keywords, location)
     
     print("\n✅ 작업 완료!")
+    print(f"\n💡 결과 확인 방법:")
+    print(f"   1. JSON 파일: {latest_file}")
+    print(f"   2. 콘솔 출력: python scripts/view_results.py")
+    print(f"   3. HTML 뷰어: python scripts/view_results.py --html")
 
 def update_readme(jobs, keywords, location):
     """README 파일에 최신 채용 공고 정보 업데이트"""
