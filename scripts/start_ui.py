@@ -16,8 +16,8 @@ def main():
     
     # FastAPI 서버 시작
     print("[INFO] FastAPI 서버를 시작합니다...")
-    print("[INFO] 서버 주소: http://localhost:8000")
-    print("[INFO] 웹 UI 주소: http://localhost:3000 (또는 http://localhost:5173)")
+    print("[INFO] 서버 주소: http://localhost:8006")
+    print("[INFO] 웹 UI 주소: http://localhost:3006")
     print()
     print("[TIP] 브라우저가 자동으로 열립니다.")
     print("[TIP] 서버를 중지하려면 Ctrl+C를 누르세요.")
@@ -27,7 +27,7 @@ def main():
     try:
         # FastAPI 서버 시작
         uvicorn_process = subprocess.Popen(
-            [sys.executable, "-m", "uvicorn", "app.main:app", "--reload", "--host", "0.0.0.0", "--port", "8000"],
+            [sys.executable, "-m", "uvicorn", "app.main:app", "--reload", "--host", "0.0.0.0", "--port", "8006"],
             cwd=Path(__file__).parent.parent
         )
         
@@ -43,7 +43,7 @@ def main():
         else:
             react_process = None
             print("[WARNING] frontend 디렉토리를 찾을 수 없습니다.")
-            print("[INFO] API 서버만 실행됩니다: http://localhost:8000")
+            print("[INFO] API 서버만 실행됩니다: http://localhost:8006")
         
         # 잠시 대기 후 브라우저 열기
         time.sleep(3)
@@ -51,9 +51,9 @@ def main():
         # 브라우저 열기
         try:
             if react_process:
-                webbrowser.open("http://localhost:3000")
+                webbrowser.open("http://localhost:3006")
             else:
-                webbrowser.open("http://localhost:8000/docs")
+                webbrowser.open("http://localhost:8006/docs")
         except:
             pass
         

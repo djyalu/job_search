@@ -37,7 +37,7 @@ cd frontend
 npm start
 ```
 
-브라우저에서 `http://localhost:3000` (또는 `http://localhost:5173`)로 접속하세요.
+브라우저에서 `http://localhost:3006`으로 접속하세요.
 
 ### 웹 UI 기능
 

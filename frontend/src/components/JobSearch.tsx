@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './JobSearch.css';
 
-const API_BASE_URL = 'http://localhost:8000';
+const API_BASE_URL = 'http://localhost:8006';
 
 interface JobSearchProps {
   onJobsFound: (jobs: any[]) => void;

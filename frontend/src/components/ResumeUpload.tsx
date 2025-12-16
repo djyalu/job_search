@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './ResumeUpload.css';
 
-const API_BASE_URL = 'http://localhost:8000';
+const API_BASE_URL = 'http://localhost:8006';
 
 interface ResumeUploadProps {
   onResumeUploaded: (resume: any) => void;
